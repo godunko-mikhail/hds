@@ -1,0 +1,60 @@
+nav {
+    height: 70px;
+    width: 100%;
+    background-color: var(--color-dark-green);
+}
+nav > .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav > .container > .main-icon {
+    height: 49px;
+} 
+
+.burger-icon, .account-icon {
+    width: 70px;
+    height: 70px;
+}
+
+.right-block{
+    display: flex;    
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    background-color: var(--color-dark-green);
+    z-index: 1;
+}
+
+.dropdown-container {
+    display: flex;
+    flex-direction: column;
+    margin: 48px;
+}
+
+::deep .dropdown-container > a, ::deep .dropdown-container > a:active, ::deep .dropdown-container > a:focus {
+    text-decoration: none;
+    color: white;
+}
+
+::deep .dropdown-container > * {
+    margin-top: 24px;
+}
+::deep .dropdown-container *:first-child {
+    margin-top: 0;
+}
+
+.burger:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-container > hr {
+    height: 2px;
+    background-color: var(--color-light-green);
+    border: none;
+}
