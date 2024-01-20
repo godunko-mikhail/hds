@@ -19,6 +19,10 @@ nav > .container > .main-icon {
     height: 70px;
 }
 
+.burger {
+    display: inline-block;
+    position: relative;
+}
 .right-block{
     display: flex;    
 }
@@ -27,6 +31,9 @@ nav > .container > .main-icon {
     display: none;
     position: absolute;
     flex-direction: column;
+    width: max-content;
+    top: 70px;
+    right: 0;
     background-color: var(--color-dark-green);
     z-index: 1;
 }

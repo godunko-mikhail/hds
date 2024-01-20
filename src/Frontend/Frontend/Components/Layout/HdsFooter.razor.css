@@ -1,0 +1,39 @@
+footer {
+  height: 560px;
+  bottom: 0;
+  background-color: var(--color-dark-green);
+}
+footer .container {
+  padding-top: 100px;
+}
+footer .container .footer-blocks {
+  display: flex;
+  flex-wrap: wrap;
+}
+footer .container .footer-blocks .footer-block {
+  margin-left: 24px;
+}
+footer .container .footer-blocks .footer-block h2 {
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+}
+footer .container .footer-blocks .footer-block p {
+  margin-top: 24px;
+}
+footer .container .footer-blocks .footer-block p:first-child, footer .container .footer-blocks .footer-block img {
+  margin-top: 32px;
+}
+footer .container .footer-blocks .footer-block:first-child {
+  width: 540px;
+}
+footer .container .creator-notation {
+  margin-top: 100px;
+}
+footer .container .creator-notation p {
+  color: var(--color-light-green);
+  display: inline;
+  margin-left: 24px;
+}
+
+/*# sourceMappingURL=HdsFooter.razor.css.map */

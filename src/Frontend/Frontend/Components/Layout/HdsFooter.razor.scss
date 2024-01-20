@@ -1,0 +1,45 @@
+footer {
+  height: 560px;
+  bottom: 0;
+  background-color: var(--color-dark-green);
+  
+  .container {
+    padding-top: 100px;
+    
+    .footer-blocks{
+      display: flex;
+      flex-wrap: wrap;
+      
+      
+      .footer-block {
+        margin-left: 24px;
+        h2 {
+          font-size: 32px;
+          font-style: normal;
+          font-weight: 500;
+        }
+        p {
+          margin-top: 24px;
+        }
+        
+        p:first-child, img{
+          margin-top: 32px;
+        }
+        
+        
+      }
+      
+      .footer-block:first-child{
+        width: 540px;
+      }
+    }
+    .creator-notation {
+      margin-top: 100px;
+      p {
+        color: var(--color-light-green);
+        display: inline;
+        margin-left: 24px;
+      }
+    }
+  }
+}

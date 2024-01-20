@@ -1,16 +1,10 @@
 section.section-1 {
-  height: 1186px;
   background-color: var(--color-dark-green);
   
   .container {
     position: relative;
     height: 100%;
-    
-    * {
-      margin-left: 24px;
-      margin-right: 24px;
-    }
-    
+    overflow-y: auto;
     h1 {
       padding-top: 150px;
       font-size: 64px;
@@ -40,13 +34,16 @@ section.section-1 {
     
     img.house {
       position: absolute;
+      max-width: 979px;
       top: 54px;
-      left: 430px;
+      right: 0;
+      height: auto;
     }
     
     .text-block {
       color: black;
       margin-top: 150px ;
+      margin-bottom: 150px ;
       background-color: white;
 
       .text-block-container {
@@ -61,10 +58,10 @@ section.section-1 {
 }
 
 section.section-2 {
-  height: 629px;
   background-color: var(--color-light-brown);
   
   .container {
+    margin-bottom: -200px;
     h2 {
       text-align: center;
       color: black;
@@ -83,6 +80,7 @@ section.section-2 {
         width: 0;
       }
     }
+    
   }
 }
 
@@ -98,7 +96,6 @@ section.section-2 {
 
 section.section-3 {
   background-color: #fff;
-  height: 1443px;
   
   .container {
     padding-top: 343px;
@@ -123,6 +120,7 @@ section.section-3 {
     }
   }
   .block2-auth {
+   
     color: black;
     position: relative;
     margin-top: 165px;
@@ -196,7 +194,9 @@ section.section-3 {
     }
   }
   .block3-chats{
+    
     margin-top: 150px;
+    margin-bottom: 150px;
     display: flex;
     flex-direction: row;
     justify-content: center;
