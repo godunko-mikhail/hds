@@ -1,21 +1,63 @@
-section.section-1 {
+.section1 {
   background-color: var(--color-dark-green);
 }
-section.section-1 .container {
+
+.section1__container {
   position: relative;
   height: 100%;
   overflow-y: auto;
 }
-section.section-1 .container h1 {
+
+.section1__header {
   padding-top: 150px;
   font-size: 64px;
   font-weight: 600;
   max-width: 948px;
 }
-section.section-1 .container p.section-1-text {
+@media screen and (max-width: 767px) {
+  .section1__header {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 479px) {
+  .section1__header {
+    padding-top: 0;
+  }
+}
+
+.section1__house {
+  position: absolute;
+  max-width: 979px;
+  max-height: 550px;
+  top: 54px;
+  right: 0;
+  height: auto;
+}
+@media screen and (max-width: 959px) {
+  .section1__house {
+    margin-top: 50px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .section1__house {
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin-top: 90px;
+  }
+}
+@media screen and (max-width: 479px) {
+  .section1__house {
+    position: relative;
+    top: auto;
+  }
+}
+
+.section1__description {
   margin-top: 40px;
 }
-section.section-1 .container button {
+
+.section1__button {
   margin-top: 40px;
   display: flex;
   width: 192px;
@@ -24,28 +66,51 @@ section.section-1 .container button {
   justify-content: center;
   align-items: center;
   color: white;
-  font-family: Montserrat, serif;
   font-size: 16px;
   background-color: rgba(0, 0, 0, 0);
   border: 2px solid var(--3, #E9E8E4);
 }
-section.section-1 .container img.house {
-  position: absolute;
-  max-width: 979px;
-  top: 54px;
-  right: 0;
-  height: auto;
+@media screen and (max-width: 479px) {
+  .section1__button {
+    font-size: 13px;
+  }
 }
-section.section-1 .container .text-block {
-  color: black;
+
+.section1__calculators-description {
   margin-top: 150px;
   margin-bottom: 150px;
+}
+@media screen and (max-width: 479px) {
+  .section1__calculators-description {
+    margin-bottom: 0;
+    margin-left: -24px;
+    margin-right: -25px;
+  }
+}
+
+.calculators-description {
+  color: black;
   background-color: white;
 }
-section.section-1 .container .text-block .text-block-container {
-  padding: 50px 108px;
+
+.calculators-description__container {
+  padding: 50px 100px;
+  position: relative;
+  z-index: 1;
 }
-section.section-1 .container .text-block .text-block-container p.text-block-p:last-child {
+@media screen and (max-width: 767px) {
+  .calculators-description__container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+@media screen and (max-width: 479px) {
+  .calculators-description__container {
+    padding: 100px 24px;
+  }
+}
+
+.calculators-description__text:last-child {
   margin-top: 24px;
 }
 
@@ -96,16 +161,16 @@ section.section-3 .block1 {
   padding-left: 129px;
   max-width: 1014px;
 }
-section.section-3 .block1 .text-block {
+section.section-3 .block1 .section1__calculators-description {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-left: 53px;
 }
-section.section-3 .block1 .text-block p {
+section.section-3 .block1 .section1__calculators-description p {
   color: black;
 }
-section.section-3 .block1 .text-block a {
+section.section-3 .block1 .section1__calculators-description a {
   color: var(--color-light-green);
   text-decoration: none;
 }

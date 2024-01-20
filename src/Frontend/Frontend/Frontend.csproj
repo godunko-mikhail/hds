@@ -22,4 +22,10 @@
     <Watch Include="..\**\*.css" />
     <Watch Include="..\**\*.cs" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\app.scss">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>

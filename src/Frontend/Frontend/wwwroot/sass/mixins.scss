@@ -1,0 +1,47 @@
+
+@mixin to($max-width) {
+  @media screen and (max-width: $max-width) {
+    @content;
+  }
+}
+@mixin from($min-width) {
+  @media screen and (min-width: $min-width) {
+    @content;
+  }
+}
+@mixin from-to($min-width, $max-width) {
+  @media screen and (min-width: $min-width) and (max-width: $max-width) {
+    @content;
+  }
+}
+@mixin lg() {
+  @include to($lg) {
+    @content;
+  }
+}
+@mixin md() {
+  @include to($md) {
+    @content;
+  }
+}
+@mixin sm() {
+  @include to($sm) {
+    @content;
+  }
+}
+@mixin xs() {
+  @include to($xs) {
+    @content;
+  }
+}
+@mixin touchDevice() {
+  @media (hover: none) and (pointer: coarse) {
+    @content;
+  }
+}
+
+
+$lg: 1199px;
+$md: 959px;
+$sm: 767px;
+$xs: 479px;
