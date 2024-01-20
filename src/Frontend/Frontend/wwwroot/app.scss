@@ -1,0 +1,33 @@
+@import "sass/mixins";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    line-height: 150%;
+}
+html {
+    font-size: 20px;
+    font-family: Montserrat, serif;
+    font-weight: 400;
+    color: white;
+    
+    @include sm() {
+        font-size: 16px;
+    }
+}
+
+.container {
+    margin: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    max-width: 1272px;
+}
+
+
+:root {
+    --color-dark-green: #112900;
+    --color-light-green: #5B7632;
+    --color-light-brown: #C2BAAF;
+    --color-very-light-brown: #E9E8E4;
+}
