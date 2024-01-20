@@ -1,0 +1,193 @@
+section.section-1 {
+  height: 1186px;
+  background-color: var(--color-dark-green);
+}
+section.section-1 .container {
+  position: relative;
+  height: 100%;
+}
+section.section-1 .container * {
+  margin-left: 24px;
+  margin-right: 24px;
+}
+section.section-1 .container h1 {
+  padding-top: 150px;
+  font-size: 64px;
+  font-weight: 600;
+  max-width: 948px;
+}
+section.section-1 .container p.section-1-text {
+  margin-top: 40px;
+}
+section.section-1 .container button {
+  margin-top: 40px;
+  display: flex;
+  width: 192px;
+  height: 48px;
+  padding: 12px 49px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: Montserrat, serif;
+  font-size: 16px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid var(--3, #E9E8E4);
+}
+section.section-1 .container img.house {
+  position: absolute;
+  top: 54px;
+  left: 430px;
+}
+section.section-1 .container .text-block {
+  color: black;
+  margin-top: 150px;
+  background-color: white;
+}
+section.section-1 .container .text-block .text-block-container {
+  padding: 50px 108px;
+}
+section.section-1 .container .text-block .text-block-container p.text-block-p:last-child {
+  margin-top: 24px;
+}
+
+section.section-2 {
+  height: 629px;
+  background-color: var(--color-light-brown);
+}
+section.section-2 .container h2 {
+  text-align: center;
+  color: black;
+  padding-top: 150px;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+}
+section.section-2 .container .section-blocks-container {
+  padding-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+section.section-2 .container .section-blocks-container .section-blocks-break {
+  flex-basis: 100%;
+  width: 0;
+}
+
+.container-10 {
+  max-width: 1056px;
+  margin: auto;
+}
+
+.container-8 {
+  max-width: 840px;
+  margin: auto;
+}
+
+section.section-3 {
+  background-color: #fff;
+  height: 1443px;
+}
+section.section-3 .container {
+  padding-top: 343px;
+}
+section.section-3 .block1 {
+  display: flex;
+  flex-direction: row;
+  padding-left: 129px;
+  max-width: 1014px;
+}
+section.section-3 .block1 .text-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 53px;
+}
+section.section-3 .block1 .text-block p {
+  color: black;
+}
+section.section-3 .block1 .text-block a {
+  color: var(--color-light-green);
+  text-decoration: none;
+}
+section.section-3 .block2-auth {
+  color: black;
+  position: relative;
+  margin-top: 165px;
+}
+section.section-3 .block2-auth .auth-header {
+  z-index: 1;
+  position: relative;
+}
+section.section-3 .block2-auth .auth-header h2 {
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+}
+section.section-3 .block2-auth .abilities {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+section.section-3 .block2-auth .abilities .ability {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 407px;
+}
+section.section-3 .block2-auth .abilities .ability .ability-block {
+  display: flex;
+  flex-shrink: 0;
+  height: 84px;
+  width: 84px;
+  background-color: var(--color-light-green);
+}
+section.section-3 .block2-auth .abilities .ability .ability-block h3 {
+  margin: auto;
+  color: white;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+}
+section.section-3 .block2-auth .abilities .ability p {
+  margin-left: 24px;
+  z-index: 1;
+}
+section.section-3 .block2-auth img.background-person {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+}
+section.section-3 .block2-auth .info-notation {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+}
+section.section-3 .block2-auth .info-notation p {
+  margin-left: 24px;
+  z-index: 1;
+  font-size: 16px;
+}
+section.section-3 .block2-auth .info-notation p a {
+  text-decoration: none;
+  color: var(--color-light-green);
+  font-style: normal;
+  font-weight: 400;
+}
+section.section-3 .block3-chats {
+  margin-top: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: black;
+}
+section.section-3 .block3-chats p {
+  margin-left: 36px;
+}
+section.section-3 .block3-chats p a {
+  color: var(--color-light-green);
+}
+
+/*# sourceMappingURL=Home.razor.css.map */

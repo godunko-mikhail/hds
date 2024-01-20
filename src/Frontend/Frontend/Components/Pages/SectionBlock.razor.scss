@@ -1,0 +1,39 @@
+.block {
+  position: relative;
+  height: 255px;
+  width: 300px;
+  background-color: var(--color-very-light-brown);
+  color: black;
+  margin-top: 24px;
+  margin-left: 24px;
+  
+  .img-info {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+  }
+  
+  .img-go {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+  }
+  h1 {
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  
+  .text-container {
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    
+    p {
+      padding-bottom: 24px;
+      max-width: 192px;
+    }
+  }
+}

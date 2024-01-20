@@ -1,0 +1,22 @@
+<div class="block">
+    <img class="img-info" src="icons/info-black.svg" alt="i"/>
+    
+    <NavLink href="@GoHref">
+        <img class="img-go" src="icons/block-go.svg" alt="->"/>
+    </NavLink>
+    <div class="text-container">
+        <h1>@Title</h1>
+        <p>@ShortDescription</p>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Title { get; set; } = "";
+
+    [Parameter]
+    public string ShortDescription { get; set; } = "";
+
+    [Parameter]
+    public string GoHref { get; set; } = "";
+}
