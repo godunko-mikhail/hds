@@ -24,6 +24,16 @@ html {
   max-width: 1272px;
 }
 
+.container-10 {
+  max-width: 1056px;
+  margin: auto;
+}
+
+.container-8 {
+  max-width: 840px;
+  margin: auto;
+}
+
 :root {
   --color-dark-green: #112900;
   --color-light-green: #5B7632;
