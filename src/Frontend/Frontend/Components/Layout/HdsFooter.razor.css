@@ -1,39 +1,102 @@
-footer {
-  height: 560px;
+.footer {
+  height: auto;
   bottom: 0;
   background-color: var(--color-dark-green);
 }
-footer .container {
+
+.footer__container {
   padding-top: 100px;
 }
-footer .container .footer-blocks {
+@media screen and (max-width: 479px) {
+  .footer__container {
+    padding-top: 50px;
+  }
+}
+
+.footer__blocks {
   display: flex;
   flex-wrap: wrap;
 }
-footer .container .footer-blocks .footer-block {
+@media screen and (max-width: 479px) {
+  .footer__blocks {
+    flex-direction: column;
+  }
+}
+
+.footer__block {
   margin-left: 24px;
 }
-footer .container .footer-blocks .footer-block h2 {
+@media screen and (max-width: 479px) {
+  .footer__block {
+    margin-left: 0;
+  }
+}
+.footer__block h2 {
   font-size: 32px;
   font-style: normal;
   font-weight: 500;
 }
-footer .container .footer-blocks .footer-block p {
+@media screen and (max-width: 767px) {
+  .footer__block h2 {
+    font-size: 16px;
+  }
+}
+.footer__block p {
   margin-top: 24px;
 }
-footer .container .footer-blocks .footer-block p:first-child, footer .container .footer-blocks .footer-block img {
+@media screen and (max-width: 767px) {
+  .footer__block p {
+    margin-top: 12px;
+    font-size: 13px;
+  }
+}
+.footer__block p:first-child, .footer__block img {
   margin-top: 32px;
 }
-footer .container .footer-blocks .footer-block:first-child {
-  width: 540px;
+@media screen and (max-width: 479px) {
+  .footer__block img {
+    height: 20px;
+  }
 }
-footer .container .creator-notation {
+
+.footer__block:first-child {
+  width: 50%;
+}
+@media screen and (max-width: 767px) {
+  .footer__block:first-child {
+    margin-bottom: 24px;
+  }
+}
+@media screen and (max-width: 479px) {
+  .footer__block:first-child {
+    width: auto;
+  }
+}
+
+.footer__creator-notation {
   margin-top: 100px;
+  padding-bottom: 24px;
+  white-space: pre-line;
 }
-footer .container .creator-notation p {
+.footer__creator-notation p {
   color: var(--color-light-green);
   display: inline;
   margin-left: 24px;
+}
+@media screen and (max-width: 767px) {
+  .footer__creator-notation p {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 479px) {
+  .footer__creator-notation p {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  .footer__creator-notation {
+    margin-top: 50px;
+  }
 }
 
 /*# sourceMappingURL=HdsFooter.razor.css.map */

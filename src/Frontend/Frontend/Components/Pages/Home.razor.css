@@ -205,74 +205,106 @@
   }
 }
 
-.section3 .block2-auth {
+.section3__auth-block {
   color: black;
   position: relative;
   margin-top: 165px;
 }
-.section3 .block2-auth .auth-header {
+@media screen and (max-width: 479px) {
+  .section3__auth-block {
+    margin-top: 77px;
+  }
+}
+
+.auth-block__header {
   z-index: 1;
   position: relative;
 }
-.section3 .block2-auth .auth-header h2 {
+.auth-block__header h2 {
   font-size: 32px;
   font-style: normal;
   font-weight: 500;
 }
-.section3 .block2-auth .abilities {
+@media screen and (max-width: 479px) {
+  .auth-block__header h2 {
+    font-size: 24px;
+  }
+}
+
+.auth-block__abilities {
   margin-top: 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
-.section3 .block2-auth .abilities .ability {
+@media screen and (max-width: 767px) {
+  .auth-block__abilities {
+    flex-direction: column;
+    margin-top: 24px;
+  }
+}
+
+.abilities__block {
   display: flex;
   flex-direction: row;
   align-items: center;
   max-width: 407px;
 }
-.section3 .block2-auth .abilities .ability .ability-block {
+.abilities__block p {
+  margin-left: 24px;
+  z-index: 1;
+}
+
+@media screen and (max-width: 767px) {
+  .abilities__block:last-child {
+    margin-top: 24px;
+  }
+}
+
+.abilities__nuber-block {
+  z-index: 1;
   display: flex;
   flex-shrink: 0;
   height: 84px;
   width: 84px;
   background-color: var(--color-light-green);
 }
-.section3 .block2-auth .abilities .ability .ability-block h3 {
+.abilities__nuber-block h3 {
   margin: auto;
   color: white;
   font-size: 48px;
   font-style: normal;
   font-weight: 600;
 }
-.section3 .block2-auth .abilities .ability p {
-  margin-left: 24px;
-  z-index: 1;
-}
-.section3 .block2-auth img.background-person {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 0;
-}
-.section3 .block2-auth .info-notation {
+
+.auth-block__info-notation {
   margin-top: 50px;
   display: flex;
   flex-direction: row;
-  width: 500px;
 }
-.section3 .block2-auth .info-notation p {
-  margin-left: 24px;
+.auth-block__info-notation div {
   z-index: 1;
+}
+.auth-block__info-notation div p {
+  margin-left: 24px;
+  white-space: normal;
   font-size: 16px;
 }
-.section3 .block2-auth .info-notation p a {
+.auth-block__info-notation div p a {
   text-decoration: none;
   color: var(--color-light-green);
   font-style: normal;
   font-weight: 400;
 }
-.section3 .block3-chats {
+
+.auth-block__background-person {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+}
+
+.section3__chats {
   margin-top: 150px;
   margin-bottom: 150px;
   display: flex;
@@ -280,10 +312,16 @@
   justify-content: center;
   color: black;
 }
-.section3 .block3-chats p {
+@media screen and (max-width: 479px) {
+  .section3__chats {
+    margin-top: 50px;
+    margin-bottom: 100px;
+  }
+}
+.section3__chats p {
   margin-left: 36px;
 }
-.section3 .block3-chats p a {
+.section3__chats p a {
   color: var(--color-light-green);
 }
 
