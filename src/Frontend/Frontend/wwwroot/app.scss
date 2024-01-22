@@ -11,7 +11,6 @@ html {
     font-family: Montserrat, serif;
     font-weight: 400;
     color: white;
-    
     @include sm() {
         font-size: 16px;
     }
@@ -26,11 +25,15 @@ html {
 .container-10 {
     max-width: 1056px;
     margin: auto;
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 .container-8 {
     max-width: 840px;
     margin: auto;
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 :root {
@@ -38,4 +41,5 @@ html {
     --color-light-green: #5B7632;
     --color-light-brown: #C2BAAF;
     --color-very-light-brown: #E9E8E4;
+    --color-light-gray: #E9E8E4;
 }

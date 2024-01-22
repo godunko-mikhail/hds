@@ -1,67 +1,116 @@
 nav {
-    height: 70px;
-    width: 100%;
-    background-color: var(--color-dark-green);
+  height: 70px;
+  width: 100%;
+  background-color: var(--color-dark-green);
 }
-nav > .container {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+@media screen and (max-width: 479px) {
+  nav {
+    height: 40px;
+  }
 }
 
-nav > .container > .main-icon {
-    height: 49px;
-} 
+nav > .container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav > .container > a > .main-icon {
+  height: 49px;
+}
+@media screen and (max-width: 479px) {
+  nav > .container > a > .main-icon {
+    height: 34px;
+  }
+}
+
+nav > .container > a {
+  height: 49px;
+}
+@media screen and (max-width: 479px) {
+  nav > .container > a {
+    height: 34px;
+  }
+}
 
 .burger-icon, .account-icon {
-    width: 70px;
-    height: 70px;
+  width: 70px;
+  height: 70px;
+}
+@media screen and (max-width: 479px) {
+  .burger-icon, .account-icon {
+    height: 40px;
+    width: 40px;
+  }
 }
 
 .burger {
-    display: inline-block;
-    position: relative;
+  display: inline-block;
+  position: relative;
 }
-.right-block{
-    display: flex;    
+@media screen and (max-width: 479px) {
+  .burger {
+    height: 40px;
+  }
+}
+
+.right-block {
+  display: flex;
+}
+
+.right-block > *:last-child {
+  margin-left: 24px;
+}
+@media screen and (max-width: 479px) {
+  .right-block > *:last-child {
+    margin-left: 12px;
+  }
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    flex-direction: column;
-    width: max-content;
-    top: 70px;
-    right: 0;
-    background-color: var(--color-dark-green);
-    z-index: 1;
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  width: max-content;
+  top: 70px;
+  right: 0;
+  background-color: var(--color-dark-green);
+  z-index: 1;
+}
+@media screen and (max-width: 479px) {
+  .dropdown-content {
+    top: 40px;
+  }
 }
 
 .dropdown-container {
-    display: flex;
-    flex-direction: column;
-    margin: 48px;
+  display: flex;
+  flex-direction: column;
+  margin: 48px;
 }
 
 ::deep .dropdown-container > a, ::deep .dropdown-container > a:active, ::deep .dropdown-container > a:focus {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 ::deep .dropdown-container > * {
-    margin-top: 24px;
+  margin-top: 24px;
 }
+
 ::deep .dropdown-container *:first-child {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .burger:hover .dropdown-content {
-    display: block;
+  display: block;
 }
 
 .dropdown-container > hr {
-    height: 2px;
-    background-color: var(--color-light-green);
-    border: none;
+  height: 2px;
+  background-color: var(--color-light-green);
+  border: none;
 }
+
+/*# sourceMappingURL=NavBar.razor.css.map */

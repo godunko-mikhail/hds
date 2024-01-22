@@ -1,0 +1,12 @@
+.paragraph__container {
+  border-left: 5px solid;
+  border-color: var(--color-light-brown);
+  padding-left: 24px;
+}
+@media screen and (max-width: 479px) {
+  .paragraph__container {
+    padding-left: 12px;
+  }
+}
+
+/*# sourceMappingURL=Paragraph.razor.css.map */
