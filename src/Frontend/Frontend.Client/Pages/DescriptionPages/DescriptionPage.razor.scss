@@ -9,6 +9,7 @@
 .section1__container {
   padding-left: 24px;
   padding-right: 24px;
+  padding-bottom: 150px;
 }
 .section1__header { 
   padding-top: 150px;
@@ -25,7 +26,6 @@
 
 .section1__description {
   margin-top: 24px;
-  padding-bottom: 150px; 
   
   @include sm() {
     padding-bottom: 50px;

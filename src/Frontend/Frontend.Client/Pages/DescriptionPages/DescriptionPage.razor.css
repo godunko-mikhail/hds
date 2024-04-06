@@ -8,6 +8,7 @@
 .section1__container {
   padding-left: 24px;
   padding-right: 24px;
+  padding-bottom: 150px;
 }
 
 .section1__header {
@@ -25,7 +26,6 @@
 
 .section1__description {
   margin-top: 24px;
-  padding-bottom: 150px;
 }
 @media screen and (max-width: 767px) {
   .section1__description {

@@ -18,6 +18,7 @@ public class DescriptionPageViewModel
     public class Segment
     {
         public string Header { get; set; } = null!;
+        public string? Link { get; set; } = null!;
         public ICollection<Paragraph> Paragraphs { get; set; } = null!;
     }
 
