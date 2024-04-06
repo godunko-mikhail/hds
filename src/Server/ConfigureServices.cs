@@ -59,8 +59,8 @@ public static partial class ConfigureServices
             })
             .AddGoogle(options =>
             {
-                options.ClientSecret = configuration.GetValue<string>("OAuth:Google:ClientSecret")!;
-                options.ClientId = configuration.GetValue<string>("OAuth:Google:ClientId")!;
+                options.ClientSecret = configuration.GetValue<string>("Auth:Google:ClientSecret")!;
+                options.ClientId = configuration.GetValue<string>("Auth:Google:ClientId")!;
                 options.SignInScheme = IdentityConstants.ExternalScheme;
             })
             .AddExternalCookie();
