@@ -1,0 +1,157 @@
+@page "/roof-systems"
+@using Frontend.Client.ViewModels
+@rendermode InteractiveWebAssembly
+
+<DescriptionPage Model="@_viewModel"></DescriptionPage>
+
+@code {
+    private DescriptionPageViewModel _viewModel = null!;
+
+    protected override void OnInitialized()
+    {
+        _viewModel = new DescriptionPageViewModel
+        {
+            PageTitle = "Стропильные системы",
+            HeadSection = new DescriptionPageViewModel.PageHead()
+            {
+                Header = "Стропильные системы",
+                Description = "Калькуляторы для расчёта стропильных систем и ферм."
+            },
+            ArticlesSection =
+            [
+                new DescriptionPageViewModel.Segment()
+                {
+                    Header = "Статьи и описания",
+                    Paragraphs = new List<DescriptionPageViewModel.Paragraph>()
+                    {
+                        new()
+                        {
+                            Text = "Стропильные системы",
+                            Link = "/blog/roof-systems.html"
+                        }
+                    }
+                }
+            ],
+            MainSection = 
+            [
+                new DescriptionPageViewModel.Segment
+                {
+                    Header = "Двускатные стропильные системы",
+                    Link = null,
+                    Paragraphs = new List<DescriptionPageViewModel.Paragraph>()
+                    {
+                        new()
+                        {
+                           Text = "Расчёт стропильной системы с несущим коньком",
+                           Link = "/truss/ridge-rafters",
+                           ReadMoreLink = "/truss/about"
+                        },
+                        new()
+                        {
+                            Text = "Расчёт стропильной системы с приподнятой затяжкой и ригелем",
+                            Link = "/truss/a-frame",
+                            ReadMoreLink = null,
+                        },
+                        new()
+                        {
+                            Text = "Расчёт стропильной системы с приподнятой затяжкой и раскосами",
+                            Link = "/truss/a-frame-queen",
+                            ReadMoreLink = null
+                        },
+                        new()
+                        {
+                            Text = "Расчёт стропильной системы \"ДубльДом\"",
+                            Link = "/truss/doubledom",
+                            ReadMoreLink = null
+                        }
+                    }
+                },
+                new DescriptionPageViewModel.Segment
+                {
+                    Header = "Фермы для двускатных стропильных систем",
+                    Link = "/truss",
+                    Paragraphs = new List<DescriptionPageViewModel.Paragraph>
+                    {
+                        new()
+                        {
+                            Text = "Расчёт фермы \"king post\"",
+                            Link = "/truss/king-post",
+                            ReadMoreLink = "/truss/about"
+                        },
+                        new()
+                        {
+                            Text = "Расчёт фермы \"queen post\"",
+                            Link = "/truss/queen-post",
+                            ReadMoreLink = "/truss/about"
+                        },
+                        new()
+                        {
+                            Text = "Расчёт фермы \"howe\" с тремя опорами",
+                            Link = "/truss/howe-3",
+                            ReadMoreLink = "/truss/about"
+                        },
+                        new()
+                        {
+                            Text = "Расчёт фермы \"fink\" (W)",
+                            Link = "/truss/fink",
+                            ReadMoreLink = "/truss/about"
+                        },
+                        new()
+                        {
+                            Text = "Расчёт фермы \"fink\" (W) с подъёмом",
+                            Link = "/truss/fink-stub",
+                            ReadMoreLink = "/truss/about"
+                        },
+                        new()
+                        {
+                            Text = "Расчёт фермы \"fan\" с подъёмом",
+                            Link = "/truss/fan-stub",
+                            ReadMoreLink = "/truss/about"
+                        },
+                        new()
+                        {
+                            Text = "Расчёт фермы \"ножницы\"",
+                            Link = "/truss/scissors",
+                            ReadMoreLink = "/truss/about"
+                        }
+                    }
+                },
+                new DescriptionPageViewModel.Segment
+                {
+                    Header = "Односкатные стропильные системы",
+                    Link = null,
+                    Paragraphs = new List<DescriptionPageViewModel.Paragraph>()
+                    {
+                        new DescriptionPageViewModel.Paragraph()
+                        {
+                            Text = "Расчёт стропильной системы с промежуточной опорой на балку чердачного перекрытия",
+                            Link = "/truss/mono-simple",
+                            ReadMoreLink = null,
+                        }
+                    }
+                },
+                new DescriptionPageViewModel.Segment
+                {
+                    Header = "Фермы для односкатных стропильных систем",
+                    Link = "/truss",
+                    Paragraphs = new List<DescriptionPageViewModel.Paragraph>()
+                    {
+                        new DescriptionPageViewModel.Paragraph()
+                        {
+                            Text = "Расчёт трехпанельной односкатной стропильной фермы",
+                            Link = "/truss/mono3-stub",
+                            ReadMoreLink = "/truss/about"
+                        },
+                        new DescriptionPageViewModel.Paragraph()
+                        {
+                            Text = "Расчёт четырёхпанельной односкатной стропильной фермы",
+                            Link = "/truss/mono4-stub",
+                            ReadMoreLink = "/truss/about"
+                        }
+                    }
+                }
+            ]
+        };
+    }
+
+}
