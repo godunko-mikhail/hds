@@ -17,12 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{431168EF-8B5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1139368F-82EC-4EF8-8F93-4A9D45E50116}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{58C14CD7-9E2E-4073-9952-682E52F4B772}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "files", "files", "{A4E2993A-FCF1-4EBB-BF37-82D14ACC60A0}"
 	ProjectSection(SolutionItems) = preProject
-		.env = .env
-		.env.sample = .env.sample
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
@@ -62,10 +58,6 @@ Global
 		{6CE8E79A-7513-473C-93AD-46EB07D11CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CE8E79A-7513-473C-93AD-46EB07D11CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CE8E79A-7513-473C-93AD-46EB07D11CD7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{58C14CD7-9E2E-4073-9952-682E52F4B772}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{58C14CD7-9E2E-4073-9952-682E52F4B772}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{58C14CD7-9E2E-4073-9952-682E52F4B772}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{58C14CD7-9E2E-4073-9952-682E52F4B772}.Release|Any CPU.Build.0 = Release|Any CPU
 		{382F5B7D-8C7C-4D2D-9180-30BBC47D74A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{382F5B7D-8C7C-4D2D-9180-30BBC47D74A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{382F5B7D-8C7C-4D2D-9180-30BBC47D74A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
