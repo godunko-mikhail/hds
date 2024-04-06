@@ -1,0 +1,53 @@
+@page "/foundations"
+@using Frontend.Client.ViewModels
+@rendermode InteractiveWebAssembly
+
+<DescriptionPage Model="@_viewModel"></DescriptionPage>
+
+@code {
+    private DescriptionPageViewModel _viewModel = null!;
+    
+    protected override void OnInitialized()
+    {
+        _viewModel = new()
+        {
+            PageTitle = "Фундаменты и основания",
+            HeadSection = new()
+            {
+                Header = "Фундаменты и основания",
+                Description = ""
+            },
+            MainSection = 
+            [
+                new()
+                {
+                    Header = "Калькуляторы для расчёта фундаментов и оснований",
+                    Paragraphs =
+                    [
+                        new()
+                        {
+                            Text = "Расчёт фундамента на винтовых сваях ",
+                            Link = null!,
+                            ReadMoreLink = ""
+                        }
+                    ]
+                }
+            ],
+            ArticlesSection = 
+            [
+                new()
+                {
+                    Header = "Статьи и описания",
+                    Paragraphs =
+                    [
+                        new()
+                        {
+                            Text = "Свайно-винтовой фундамент для каркасного дома",
+                            Link = null!,
+                        },
+                    ]
+                },
+            ]
+        };
+    }
+}

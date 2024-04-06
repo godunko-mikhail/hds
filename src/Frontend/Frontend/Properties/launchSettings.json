@@ -17,6 +17,8 @@
       "commandName": "Executable",
       "workingDirectory": "$(ProjectDir)",
       "executablePath": "dotnet.exe",
+      "hotReloadEnabled": true,
+      "hotReloadProfile": "aspnetcore",
       "commandLineArgs": "watch run debug --launch-profile http"
     }
   }

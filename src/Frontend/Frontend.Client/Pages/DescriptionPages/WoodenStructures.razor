@@ -1,0 +1,75 @@
+@page "/wooden-structures"
+@using Frontend.Client.ViewModels
+@rendermode InteractiveWebAssembly
+
+<DescriptionPage Model="@_viewModel"></DescriptionPage>
+
+@code {
+    private DescriptionPageViewModel _viewModel = null!;
+    
+    protected override void OnInitialized()
+    {
+        _viewModel = new()
+        {
+            PageTitle = "Деревянные конструкции",
+            HeadSection = new()
+            {
+                Header = "Деревянные конструкции",
+                Description = "Калькуляторы для расчёта элементов деревянных конструкций"
+            },
+            MainSection = 
+            [
+                new()
+                {
+                    Header = "Калькуляторы использующие методику расчёта СП 64.13330.2017",
+                    Paragraphs =
+                    [
+                        new()
+                        {
+                            Text = "Расчет перекрытия с деревянным каркасом",
+                            Link = null!,
+                            ReadMoreLink = ""
+                        },
+                        new()
+                        {
+                            Text = "Расчет деревянных балок — Прямоугольного сечения под действием равномерного распределенной и состредоточенной нагрузки",
+                            Link = null!,
+                        },
+                        new()
+                        {
+                            Text = "Расчет несущей способности нагельного соединения в деревянных конструкциях",
+                            Link = null!,
+                        },
+                    ]
+                },
+                new()
+                {
+                    Header = "Калькуляторы использующие методику расчёта ТКН EN 1995-1-1-2009 (EuroCode 5)",
+                    Paragraphs =
+                    [
+                        new()
+                        {
+                            Text = "Несущая способность на сдвиг соединений на металлических крепежных деталях (гвоздях)",
+                            Link = null!,
+                        },
+                    ]
+                }
+            ],
+            ArticlesSection = 
+            [
+                new()
+                {
+                    Header = "Статьи и описания",
+                    Paragraphs =
+                    [
+                        new()
+                        {
+                            Text = "Конструкция перекрытия с деревянным каркасом",
+                            Link = null!,
+                        },
+                    ]
+                },
+            ]
+        };
+    }
+}

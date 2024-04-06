@@ -1,0 +1,43 @@
+@page "/loads-and-impacts"
+@using Frontend.Client.ViewModels
+@rendermode InteractiveWebAssembly
+
+<DescriptionPage Model="@_viewModel"></DescriptionPage>
+
+@code {
+    private DescriptionPageViewModel _viewModel = null!;
+    
+    protected override void OnInitialized()
+    {
+        _viewModel = new()
+        {
+            PageTitle = "Нагрузки и воздействия",
+            HeadSection = new()
+            {
+                Header = "Нагрузки и воздействия",
+                Description = ""
+            },
+            MainSection = 
+            [
+                new()
+                {
+                    Header = "Калькуляторы нагрузок и воздействий.",
+                    Paragraphs =
+                    [
+                        new()
+                        {
+                            Text = "Расчёт снеговой нагрузки на горизонтальную поверхность и поверхность кровли",
+                            Link = "/loads/snow"
+                        },
+                        new()
+                        {
+                            Text = "Расчёт нормальной составляющей основной ветровой нагрузки на стены прямоугольных в плане зданий",
+                            Link = "/loads/wind"
+                        }
+                    ]
+                }
+            ],
+            ArticlesSection = null
+        };
+    }
+}

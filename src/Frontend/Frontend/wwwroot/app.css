@@ -27,15 +27,11 @@ html {
 .container-10 {
   max-width: 1056px;
   margin: auto;
-  padding-left: 24px;
-  padding-right: 24px;
 }
 
 .container-8 {
   max-width: 840px;
   margin: auto;
-  padding-left: 24px;
-  padding-right: 24px;
 }
 
 :root {

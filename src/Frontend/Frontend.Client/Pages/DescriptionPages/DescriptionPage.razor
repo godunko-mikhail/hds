@@ -1,0 +1,66 @@
+@using Frontend.Client.ViewModels
+@using Frontend.Client.Pages.Common
+<PageTitle>@Model.PageTitle</PageTitle>
+
+<section class="section1">
+    <div class="section1__container container-10">
+        <h1 class="section1__header">@Model.HeadSection.Header</h1>
+        @if (Model.HeadSection.Description is not null)
+        {
+            <p class="section1__description">
+                @Model.HeadSection.Description
+            </p>
+        }
+    </div>
+</section>
+
+<section class="section2">
+    <div class="section2__container container-10">
+        @foreach (var segment in Model.MainSection)
+        {
+            <h2 class="section2__header">
+                @segment.Header
+            </h2>
+            foreach (var paragraph in segment.Paragraphs)
+            {
+                <Paragraph>
+                    @paragraph.Text
+                    @if (paragraph.ReadMoreLink is not null)
+                    {
+                        @: - читать описание...
+                    }
+                </Paragraph>
+            }
+        }
+    </div>
+</section>
+
+@if (Model.ArticlesSection is not null)
+{
+    <section class="section3">
+        <div class="section3__container container-10">
+            @foreach (var segment in Model.ArticlesSection)
+            {
+                <h2>
+                    @segment.Header
+                </h2>
+                foreach (var paragraph in segment.Paragraphs)
+                {
+                    <Paragraph>
+                        @paragraph.Text
+                        @if (paragraph.ReadMoreLink is not null)
+                        {
+                            @:" - читать описание..."
+                        }
+                    </Paragraph>
+                }
+            }
+        </div>
+    </section>
+}
+
+@code {
+    [Parameter] 
+    public DescriptionPageViewModel Model { get; set; } = null!;
+
+}

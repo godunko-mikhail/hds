@@ -12,4 +12,12 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <AdditionalFiles Include="Pages\Common\Paragraph.razor" />
+    <AdditionalFiles Include="Pages\Home\Home.razor" />
+    <AdditionalFiles Include="Pages\Home\SectionBlock.razor" />
+    <AdditionalFiles Include="Pages\DescriptionPages\DescriptionPage.razor" />
+    <AdditionalFiles Include="Pages\DescriptionPages\WoodenStructures.razor" />
+  </ItemGroup>
+
 </Project>
