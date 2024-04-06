@@ -63,8 +63,8 @@ public static partial class ConfigureServices
         {
             authBuilder.AddGoogle(options =>
             {
-                options.ClientSecret = configuration.GetValue<string>("Auth:Google:ClientSecret")!;
-                options.ClientId = configuration.GetValue<string>("Auth:Google:ClientId")!;
+                options.ClientSecret = configuration.GetValue<string>("OAuth:Google:ClientSecret")!;
+                options.ClientId = configuration.GetValue<string>("OAuth:Google:ClientId")!;
                 options.SignInScheme = IdentityConstants.ExternalScheme;
             }).AddExternalCookie();
         }
