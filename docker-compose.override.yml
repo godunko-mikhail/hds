@@ -1,13 +1,10 @@
 version: '3.4'
 
 services:
-  hds_client:
-    ports:
-      - "3000:3000"
   hds_server:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_URLS=http://+:80
       - OAuth__Google__ClientId=${OAUTH_GOOGLE_CLIENT}
       - OAuth__Google__ClientSecret=${OAUTH_GOOGLE_SECRET}
       - ConnectionStrings__DefaultConnection=${PGSQL_CONNECTION}
