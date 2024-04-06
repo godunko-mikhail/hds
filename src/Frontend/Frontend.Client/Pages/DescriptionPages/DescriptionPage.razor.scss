@@ -6,6 +6,10 @@
   background-repeat: no-repeat;
   color: white;
 }
+.section1__container {
+  padding-left: 24px;
+  padding-right: 24px;
+}
 .section1__header { 
   padding-top: 150px;
   
@@ -33,26 +37,24 @@
 }
 .section2__container {
   color: black;
-  padding-bottom: 150px;
-  padding-top: 150px;
- 
+  padding: 150px 24px;
   @include sm() {
     padding-top: 50px;
     padding-bottom: 50px;
   }
-  h2 {
-    font-size: 32px;
-    font-weight: 500;
-    
-    @include sm() {
-      font-size: 24px;
-    }
-  }
-  
-  h2:last-child {
-    margin-top: 50px;
+}
+.section2__header{
+  font-size: 32px;
+  font-weight: 500;
+  margin-top: 50px;
+  @include sm() {
+    font-size: 24px;
   }
 }
+.section2__header:first-of-type{
+  margin-top: 0;
+}
+
 ::deep .section2__container > .paragraph__container {
   margin-top: 24px; 
   margin-left: 108px;
@@ -61,17 +63,16 @@
   @include md() {
     margin-left: 0;
   }
-}
-
-.section2__eurocode-calcs-header__margin-top {
-  margin-top: 50px;
+  @include sm() {
+    margin-top: 12px; 
+  }
 }
 
 .section3__container {
   color: black;
-  padding-bottom: 150px;
-  padding-top: 150px;
-
+  padding: 150px 24px;
+  
+  
   @include sm() {
     padding-top: 50px;
     padding-bottom: 50px;

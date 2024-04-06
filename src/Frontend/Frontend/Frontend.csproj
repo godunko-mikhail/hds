@@ -14,6 +14,12 @@
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\bootstrap\bootstrap.min.css" />
     <_ContentIncludedByDefault Remove="wwwroot\bootstrap\bootstrap.min.css.map" />
+    <_ContentIncludedByDefault Remove="Components\Pages\WoodenStructures\DescriptionPage.razor" />
+    <_ContentIncludedByDefault Remove="Components\Pages\WoodenStructures\WoodenStructures.razor" />
+    <_ContentIncludedByDefault Remove="Components\Common\Paragraph.razor" />
+    <_ContentIncludedByDefault Remove="Components\Pages\Home\Home.razor" />
+    <_ContentIncludedByDefault Remove="Components\Pages\Home\SectionBlock.razor" />
+    <_ContentIncludedByDefault Remove="Components\Pages\RoofSystems\RoofSystems.razor" />
   </ItemGroup>
 
   <ItemGroup>
