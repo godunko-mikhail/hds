@@ -1,5 +1,5 @@
 ﻿using Core.Common.Enums;
-using Core.Entities.Loads;
+using Core.Models.Loads;
 
 namespace Core.Common.Interfaces;
 

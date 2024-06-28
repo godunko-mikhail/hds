@@ -1,6 +1,6 @@
 ﻿using static Core.Data;
 
-namespace Core.Entities.Loads;
+namespace Core.Models.Loads;
 
 public class DistributedLoadV2 : DistributedLoad
 {

@@ -3,7 +3,7 @@ using MathCore.Common.Base;
 using static Core.Data;
 using static MathCore.Mathematics;
 
-namespace Core.Entities;
+namespace Core.Models;
 
 public class Construction : IGeometricCharacteristic
 {

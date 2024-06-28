@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Core.Common.Enums;
 using Core.Common.Interfaces;
-using Core.Entities;
-using Core.Entities.Loads;
+using Core.Models;
+using Core.Models.Loads;
 using MediatR;
 
 namespace Application.Features.WoodenConstruction.Queries.GetBeamFull;

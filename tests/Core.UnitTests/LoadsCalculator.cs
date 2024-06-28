@@ -1,5 +1,5 @@
 ﻿using Core.Common.Interfaces;
-using Core.Entities;
+using Core.Models;
 using Core.Services;
 using MathCore.Common.Base;
 using MathCore.Common.Interfaces;
