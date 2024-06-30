@@ -1,10 +1,6 @@
-﻿using Core.Entities;
-using MathCore.FemCalculator;
+﻿using MathCore.FemCalculator;
 using Svg;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using MathCore.Common.Base;
-using MathCore.FemCalculator.Model;
 
 namespace Application.Services;
 public class DrawingService
