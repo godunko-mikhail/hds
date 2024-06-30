@@ -1,3 +1,5 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Application;
 using Core;
 using Infrastructure;
@@ -21,7 +23,14 @@ try
     builder.Services.AddInfrastructureServices(builder.Configuration);
     builder.Services.AddCoreServices();
 
-
+    builder.Services.ConfigureHttpJsonOptions(options =>
+    {
+        options.SerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
+    });
+    builder.Services.Configure<Microsoft.AspNetCore.Mvc.JsonOptions>(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
+    });
     builder.Host.UseSerilog();
     var app = builder.Build();
 
