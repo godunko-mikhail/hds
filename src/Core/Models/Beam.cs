@@ -1,6 +1,6 @@
 ﻿using Core.Common.Enums;
 using Core.Common.Interfaces;
-using Core.Entities.Loads;
+using Core.Models.Loads;
 
 namespace Core.Entities;
 

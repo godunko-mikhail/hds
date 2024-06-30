@@ -41,7 +41,7 @@ public static partial class ConfigureServices
             });
         });
 
-        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        var authBuilder = services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
                 options.TokenValidationParameters = new TokenValidationParameters
@@ -57,13 +57,18 @@ public static partial class ConfigureServices
                     ValidateIssuerSigningKey = true
                 };
             })
-            .AddGoogle(options =>
+
+            ;
+        if (!string.IsNullOrEmpty(configuration.GetValue<string?>("Auth:Google:ClientSecret")))
+        {
+            authBuilder.AddGoogle(options =>
             {
                 options.ClientSecret = configuration.GetValue<string>("Auth:Google:ClientSecret")!;
                 options.ClientId = configuration.GetValue<string>("Auth:Google:ClientId")!;
                 options.SignInScheme = IdentityConstants.ExternalScheme;
-            })
-            .AddExternalCookie();
+            }).AddExternalCookie();
+        }
+            
 
         services.AddAuthorizationBuilder()
             .AddPolicy("subscriber_1", policy => policy

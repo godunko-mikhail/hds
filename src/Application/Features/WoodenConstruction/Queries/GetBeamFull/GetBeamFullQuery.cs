@@ -3,7 +3,7 @@ using AutoMapper;
 using Core.Common.Enums;
 using Core.Common.Interfaces;
 using Core.Entities;
-using Core.Entities.Loads;
+using Core.Models.Loads;
 using MediatR;
 using Newtonsoft.Json;
 using Svg;

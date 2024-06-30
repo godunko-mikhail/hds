@@ -3,6 +3,7 @@ using MathCore.FemCalculator;
 using Svg;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using MathCore.Common.Base;
 using MathCore.FemCalculator.Model;
 
 namespace Application.Services;
@@ -10,21 +11,23 @@ public class DrawingService
 {
     private const double ScaleDefault = 100;
     private const double ScaleDisplacement = ScaleDefault * 10_000;
-    private const double ScaleForce = 1d / 2d;
     private const double OffsetX = 5;
-    private const double OffsetY = 50;
-
+    private const double SizeCoef = 0.2;
+    
     public SvgDocument DrawDisplacement(FemModel fem)
     {
+        var maxX = fem.Nodes.Select(v => v.Coordinate.X).Max();
+        var maxY = fem.Nodes.Select(v => Math.Abs(v.Displacement.Z)).Max();
+        var coef = (maxX * SizeCoef * ScaleDefault) / maxY;
 
-        var svg = new SvgDocument();
-
+        var svg = InitSvgDocument(maxX, maxY);
+        
         var beamBase = DrawValues(fem.Nodes
-            .Select(node => new KeyValuePair<double, double>(node.Coordinate.X * ScaleDefault, 0)),
+                .Select(node => new KeyValuePair<double, double>(node.Coordinate.X * ScaleDefault, maxY * coef)),
             Color.Coral);
-
+        
         var beamDisplacementZ = DrawValues(fem.Nodes
-                .Select(node => new KeyValuePair<double, double>(node.Coordinate.X * ScaleDefault, -(node.Displacement.Z * ScaleDisplacement))),
+                .Select(node => new KeyValuePair<double, double>(node.Coordinate.X * ScaleDefault, - (node.Displacement.Z * coef) + maxY * coef)),
             Color.DarkGreen);
 
         svg.Children.Add(beamBase);
@@ -54,29 +57,52 @@ public class DrawingService
 
     public SvgDocument DrawForce(FemModel fem)
     {
-        var svg = new SvgDocument();
+        
+        var maxX = fem.Nodes.Select(v => v.Coordinate.X).Max();
+        var maxY = fem.Segments
+            .SelectMany(v => new double[2] { v.First.Force!.Z, v.Second.Force!.Z })
+            .Select(v => Math.Abs(v))
+            .Max();
+        
+        var coef = (maxX * SizeCoef * ScaleDefault) / maxY;
+        
         var beamBase = DrawValues(fem.Nodes
-                .Select(node => new KeyValuePair<double, double>(node.Coordinate.X * ScaleDefault, 0)),
+                .Select(node => new KeyValuePair<double, double>(node.Coordinate.X * ScaleDefault, maxY * coef)),
             Color.Coral);
-
+        
+        var svg = InitSvgDocument(maxX, maxY);
+        
         var points = new List<KeyValuePair<double, double>>();
-        foreach (var segment in fem.Segments)
+
+
+        for (var i = 0; i < fem.Segments.Count; i++)
         {
-            var node = fem.Nodes[segment.First.Node - 1];
-            var force = segment.First.Force!.Z;
+            var segment = fem.Segments[i];
+            var node = fem.Nodes[i];
+            var forceL = segment.First.Force!.Z;
+            var forceR = -segment.Second.Force!.Z;
 
-            points.Add(new KeyValuePair<double, double>(node.Coordinate.X * ScaleDefault, force * ScaleForce));
-        }
+            points.Add(new KeyValuePair<double, double>(node.Coordinate.X * ScaleDefault, forceL * coef + maxY * coef));
+            points.Add(new KeyValuePair<double, double>(fem.Nodes[segment.Second.Node - 1].Coordinate.X * ScaleDefault, forceR * coef + maxY * coef));
+        } 
         points.Add(new KeyValuePair<double, double>(
-            fem.Nodes[fem.Segments.Last().Second.Node - 1].Coordinate.X * ScaleDefault,
-            -fem.Segments.Last().Second.Force!.Z * ScaleForce));
-
+            fem.Nodes.Last().Coordinate.X * ScaleDefault,
+            -fem.Segments.Last().Second.Force!.Z * coef + maxY * coef));
+        
         svg.Children.Add(beamBase);
         svg.Children.Add(DrawValues(points, Color.DarkOliveGreen));
 
         return svg;
     }
 
+    private static SvgDocument InitSvgDocument(double maxX, double maxY)
+    {
+        var svg = new SvgDocument();
+        var coef = (maxX * SizeCoef * ScaleDefault) / maxY;
+        svg.Height = new SvgUnit((float)(maxY * 2 * coef));
+        svg.Width = new SvgUnit((float)(maxX * ScaleDefault + OffsetX * 2));
+        return svg;
+    }
     private static SvgPolyline DrawValues(IEnumerable<KeyValuePair<double, double>> values, Color color)
     {
         var line = new SvgPolyline
@@ -89,7 +115,7 @@ public class DrawingService
         foreach (var point in values)
         {
             line.Points.Add(new SvgUnit((float) (OffsetX + point.Key))); //x
-            line.Points.Add(new SvgUnit((float) (OffsetY + point.Value))); //y
+            line.Points.Add(new SvgUnit((float) (point.Value))); //y
         }
         return line;
     }

@@ -1,4 +1,4 @@
-﻿namespace Core.Entities.Loads;
+﻿namespace Core.Models.Loads;
 
 public class ConcentratedLoadV2 : ConcentratedLoad
 {
