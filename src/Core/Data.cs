@@ -13,41 +13,23 @@ public static class Data
     /// <summary>
     ///     информация по материалам тбалица B.3
     ///     https://docs.cntd.ru/document/456082589
+    ///     https://files.stroyinf.ru/Data2/1/4293744/4293744725.pdf
     /// </summary>
-    public static readonly
-        Dictionary<WoodenMaterials, (double StiffnessModulus, double StiffnessModulusAverage, double ShearModulusAverage
+    public static readonly Dictionary<WoodenMaterials, (double StiffnessModulus, double StiffnessModulusAverage, double ShearModulusAverage
             , double BendingResistance, double BendingShearResistance)> MaterialCharacteristics = new()
         {
-            {
-                WoodenMaterials.PlankK16,
-                new ValueTuple<double, double, double, double, double>(5.4 * 1000000000, 8.0 * 1000000000,
-                    0.50 * 1000000000, 13.0 * 1000000, 2.4 * 1000000)
-            },
-            {
-                WoodenMaterials.PlankK24,
-                new ValueTuple<double, double, double, double, double>(7.4 * 1000000000, 11.0 * 1000000000,
-                    0.69 * 1000000000, 19.5 * 1000000, 2.4 * 1000000)
-            },
-            {
-                WoodenMaterials.PlankK26,
-                new ValueTuple<double, double, double, double, double>(8.0 * 1000000000, 11.5 * 1000000000,
-                    0.72 * 1000000000, 21.0 * 1000000, 2.7 * 1000000)
-            },
-            {
-                WoodenMaterials.LvlK35,
-                new ValueTuple<double, double, double, double, double>(10.0 * 1000000000, 10.0 * 1000000000,
-                    0.50 * 1000000000, 30.0 * 1000000, 2.9 * 1000000)
-            },
-            {
-                WoodenMaterials.LvlK40,
-                new ValueTuple<double, double, double, double, double>(10.0 * 1000000000, 10.0 * 1000000000,
-                    0.60 * 1000000000, 34.0 * 1000000, 3.0 * 1000000)
-            },
-            {
-                WoodenMaterials.LvlK45,
-                new ValueTuple<double, double, double, double, double>(10.0 * 1000000000, 10.0 * 1000000000,
-                    0.70 * 1000000000, 39.0 * 1000000, 3.2 * 1000000)
-            }
+            [WoodenMaterials.PlankK16] = new ValueTuple<double, double, double, double, double>(
+                5.4 * 1_000_000_000, 8.0 * 1_000_000_000, 0.50 * 1_000_000_000, 13.0 * 1_000_000, 2.4 * 1_000_000),
+            [WoodenMaterials.PlankK24] = new ValueTuple<double, double, double, double, double>(
+                7.4 * 1_000_000_000, 11.0 * 1_000_000_000,0.69 * 1_000_000_000, 19.5 * 1_000_000, 2.4 * 1_000_000),
+            [WoodenMaterials.PlankK26] = new ValueTuple<double, double, double, double, double>(
+                8.0 * 1_000_000_000, 11.5 * 1_000_000_000, 0.72 * 1_000_000_000, 21.0 * 1_000_000, 2.7 * 1_000_000),
+            [WoodenMaterials.LvlK35] = new ValueTuple<double, double, double, double, double>(
+                10.0 * 1_000_000_000, 10.0 * 1_000_000_000, 0.50 * 1_000_000_000, 30.0 * 1_000_000, 2.9 * 1_000_000),
+            [WoodenMaterials.LvlK40] = new ValueTuple<double, double, double, double, double>(
+                10.0 * 1_000_000_000, 10.0 * 1_000_000_000, 0.60 * 1_000_000_000, 34.0 * 1_000_000, 3.0 * 1_000_000),
+            [WoodenMaterials.LvlK45] = new ValueTuple<double, double, double, double, double>(
+                10.0 * 1_000_000_000, 10.0 * 1_000_000_000, 0.70 * 1_000_000_000, 39.0 * 1_000_000, 3.2 * 1_000_000)
         };
 
     public static readonly IEnumerable<ShrinkageValue> ShrinkageValues = new List<ShrinkageValue>

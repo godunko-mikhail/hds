@@ -8,6 +8,9 @@
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
         <DockerComposeProjectPath>docker-compose.dcproj</DockerComposeProjectPath>
         <DockerfileContext>..\..</DockerfileContext>
+        <LangVersion>latest</LangVersion>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>CS1591</NoWarn>
     </PropertyGroup>
 
 
