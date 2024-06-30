@@ -38,19 +38,39 @@ public class DrawingService
 
     public SvgDocument DrawMoments(FemModel fem)
     {
-
-        var svg = new SvgDocument();
-
+        var maxX = fem.Nodes.Select(v => v.Coordinate.X).Max();
+        var maxY = fem.Segments
+            .SelectMany(v => new double[2] { v.First.Force!.V, v.Second.Force!.V })
+            .Select(v => Math.Abs(v))
+            .Max();
+        
+        var coef = (maxX * SizeCoef * ScaleDefault) / maxY;
+        
         var beamBase = DrawValues(fem.Nodes
-                .Select(node => new KeyValuePair<double, double>(node.Coordinate.X * ScaleDefault, 0)),
+                .Select(node => new KeyValuePair<double, double>(node.Coordinate.X * ScaleDefault, maxY * coef)),
             Color.Coral);
+        
+        var svg = InitSvgDocument(maxX, maxY);
+        
+        var points = new List<KeyValuePair<double, double>>();
 
-        var beamDisplacementZ = DrawValues(fem.Nodes
-                .Select(node => new KeyValuePair<double, double>(node.Coordinate.X * ScaleDefault, -(node.Displacement.V * ScaleDisplacement))),
-            Color.DarkGreen);
 
+        for (var i = 0; i < fem.Segments.Count; i++)
+        {
+            var segment = fem.Segments[i];
+            var node = fem.Nodes[i];
+            var forceL = segment.First.Force!.V;
+            var forceR = -segment.Second.Force!.V;
+
+            points.Add(new KeyValuePair<double, double>(node.Coordinate.X * ScaleDefault, forceL * coef + maxY * coef));
+            points.Add(new KeyValuePair<double, double>(fem.Nodes[segment.Second.Node - 1].Coordinate.X * ScaleDefault, forceR * coef + maxY * coef));
+        } 
+        points.Add(new KeyValuePair<double, double>(
+            fem.Nodes.Last().Coordinate.X * ScaleDefault,
+            -fem.Segments.Last().Second.Force!.V * coef + maxY * coef));
+        
         svg.Children.Add(beamBase);
-        svg.Children.Add(beamDisplacementZ);
+        svg.Children.Add(DrawValues(points, Color.DarkOliveGreen));
 
         return svg;
     }

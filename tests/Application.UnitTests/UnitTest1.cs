@@ -38,4 +38,17 @@ public class Tests
         File.WriteAllText(@"C:\Users\Happy\f.svg", sw.ToString());
         Assert.Pass();
     }
+    [Test]
+    public void Test1M()
+    {
+        var svc = new DrawingService();
+        
+        var res = svc.DrawMoments(_femModel);
+        using var sw = new StringWriter();
+        using var xml = new XmlTextWriter(sw);
+        res.Write(xml);
+        
+        File.WriteAllText(@"C:\Users\Happy\m.svg", sw.ToString());
+        Assert.Pass();
+    }
 }
