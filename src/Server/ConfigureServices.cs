@@ -16,7 +16,7 @@ public static partial class ConfigureServices
 
         services.AddSwaggerGen(options =>
         {
-            options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+            /*options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
             {
                 In = ParameterLocation.Header,
                 Description = "Please enter a valid token",
@@ -24,7 +24,7 @@ public static partial class ConfigureServices
                 Type = SecuritySchemeType.Http,
                 BearerFormat = "JWT",
                 Scheme = "Bearer"
-            });
+            });*/
             options.AddSecurityRequirement(new OpenApiSecurityRequirement
             {
                 {
