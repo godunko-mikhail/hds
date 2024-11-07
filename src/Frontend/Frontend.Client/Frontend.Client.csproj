@@ -20,4 +20,9 @@
     <AdditionalFiles Include="Pages\DescriptionPages\WoodenStructures.razor" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Pages\Blog\BlogLinkBlock.razor.css.map" />
+    <None Remove="Pages\Blog\Blog.razor.css.map" />
+  </ItemGroup>
+
 </Project>

@@ -38,4 +38,8 @@
       <Link>.dockerignore</Link>
     </Content>
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\sass\" />
+  </ItemGroup>
 </Project>

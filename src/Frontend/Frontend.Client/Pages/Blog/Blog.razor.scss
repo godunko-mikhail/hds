@@ -1,0 +1,89 @@
+@import "sass/mixins";
+
+.header-section{
+  margin-top: 150px;
+  padding-bottom: 150px;
+  
+  
+  h1 {
+    color: var(--color-dark-green);
+    line-height: normal;
+  }
+  
+  p {
+    color: black;
+    font-size: 20px;
+    
+    margin-top: 50px;
+    line-height: 150%;
+  }
+}
+
+.links-block1 {
+  display: flex;
+  flex-direction: row;
+  gap: 24px; 
+  flex: 1 1 100%;
+   
+  ::deep > .link-block-container {
+    max-width: 408px;
+  } 
+  
+  @include lg() {
+    
+    flex-direction: column;
+    align-items: center;
+    
+    ::deep > .link-block-container {
+      max-width: 840px;
+    }
+  }
+}
+
+.links-block2 {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  ::deep > .link-block-container {
+    max-width: 840px;
+  }
+  
+  @include sm(){
+    width: 100%;
+  }
+}
+
+.links-block3 {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  flex-grow: 1;
+  
+  ::deep .link-block-container {
+    max-width: 408px;
+  }
+  
+  @include sm() {
+    flex-direction: column;
+    align-items: center;
+
+    ::deep .link-block-container {
+      max-width: 840px;
+      width: 100%;
+    }
+  }
+}
+
+.links-section{
+  margin-bottom: 150px;
+  
+  @include sm() {
+    margin-bottom: 100px;
+  }
+}
+
+
+::deep a {
+  color: inherit; 
+  text-decoration: inherit; 
+}

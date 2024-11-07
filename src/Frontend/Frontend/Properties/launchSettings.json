@@ -5,10 +5,8 @@
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "launchUrl": "http://localhost:5249",
-      "hotReloadEnabled": true,
+      "applicationUrl": "http://127.0.0.1:5250",
       "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
-      "applicationUrl": "http://0.0.0.0:5249",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -19,7 +17,7 @@
       "executablePath": "dotnet.exe",
       "hotReloadEnabled": true,
       "hotReloadProfile": "aspnetcore",
-      "commandLineArgs": "watch run debug --launch-profile http"
+      "commandLineArgs": "watch run debug --non-interactive --launch-profile http"
     }
   }
 }
