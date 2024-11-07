@@ -1,0 +1,63 @@
+@page "/blog"
+<section class="header-section">
+    <div class="header-section__container container-8 container">
+        <h1 class="default-h1">На заметку самостройщику</h1>
+
+        <p>У каждого самостройщика возникает множество вопросов по
+            расчёту конструкций. В этом разделе содержатся статьи,
+            освещающие как расчёты конструкций, так и особенности их
+            проектирования.
+        </p>
+    </div>
+</section>
+
+<section class="links-section">
+    <div class="links-section__container container-12 container">
+        <div class="links-block1">
+            <BlogLinkBlock
+                Header="Фундаменты"
+                Description="Свайно-винтовой фундамент для каркасного дома:"
+                Links="@_foundationsLinks"/>
+            
+            <div class="links-block2">
+                <BlogLinkBlock
+                    Header="Стропильные системы"
+                    Description="Стропильные системы"
+                    Links="@_roofSystemLinks"/>
+                <div class="links-block3">
+                    <BlogLinkBlock
+                        Header="Перекрытия"
+                        Description="Перекрытие с деревянным каркасом. Конструкция"
+                        Links="@_foundationLinks"/>
+
+                    <BlogLinkBlock
+                        Header="Стены"
+                        Description="Идеальный пирог стены каркасного дома"
+                        Links="@_wallLinks"/>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@code {
+
+    private readonly BlogLinkBlock.LinkBlock[] _foundationsLinks =
+    [
+        new ("#", "Расчет несущей способности винтовой сваи"),
+        new ("#", "Сбор нагрузок. Собственный вес конструкции"),
+        new ("#", "Сбор нагрузок для каркасного дома. Нагрузка на прогоны для дома 6х6"),
+    ];
+    
+    private readonly BlogLinkBlock.LinkBlock[] _roofSystemLinks =
+    [
+        new ("#", "Стропильная система с затяжкой балкой перекрытия"),
+        new ("#", "Несущая коньковая балка"),
+    ];
+    
+    private readonly BlogLinkBlock.LinkBlock[] _foundationLinks = [];
+    
+    private readonly BlogLinkBlock.LinkBlock[] _wallLinks = [];
+}

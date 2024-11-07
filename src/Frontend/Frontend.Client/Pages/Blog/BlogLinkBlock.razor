@@ -1,0 +1,35 @@
+@using Frontend.Client.Pages.Common
+
+<div class="link-block-container">
+    <div class="link-block__content">
+        <h3>
+            @Header
+        </h3>
+        <p>
+            @Description
+        </p>
+        @foreach (var link in Links)
+        {
+            <Paragraph>
+                <a href="@link.Link">
+                    @link.LinkName
+                </a>
+            </Paragraph>
+        }
+    </div>
+</div>
+
+
+@code {
+    
+    [Parameter]
+    public required string Header { get; set; }
+    
+    [Parameter]
+    public required string Description { get; set; }
+
+    [Parameter] public IEnumerable<LinkBlock> Links { get; set; } = ArraySegment<LinkBlock>.Empty;
+
+    public record struct LinkBlock(string Link, string LinkName);
+
+}

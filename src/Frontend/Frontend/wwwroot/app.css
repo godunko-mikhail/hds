@@ -24,6 +24,11 @@ html {
   max-width: 1272px;
 }
 
+.container-12 {
+  max-width: 1272px;
+  margin: auto;
+}
+
 .container-10 {
   max-width: 1056px;
   margin: auto;
@@ -32,6 +37,16 @@ html {
 .container-8 {
   max-width: 840px;
   margin: auto;
+}
+
+.default-h1 {
+  font-size: 64px;
+  font-weight: 600;
+}
+@media screen and (max-width: 767px) {
+  .default-h1 {
+    font-size: 32px;
+  }
 }
 
 :root {

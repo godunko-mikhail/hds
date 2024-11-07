@@ -1,0 +1,30 @@
+.link-block-container {
+  background-color: var(--color-light-green);
+  display: flex;
+  justify-content: center;
+}
+.link-block-container h3 {
+  font-weight: 500;
+  font-size: 40px;
+}
+@media screen and (max-width: 767px) {
+  .link-block-container h3 {
+    font-size: 24px;
+  }
+}
+.link-block-container p {
+  margin-top: 24px;
+}
+.link-block-container .link-block__content {
+  margin: 50px;
+}
+@media screen and (max-width: 767px) {
+  .link-block-container .link-block__content {
+    margin: 24px 12px;
+  }
+}
+.link-block-container ::deep .paragraph__container {
+  margin-top: 20px;
+}
+
+/*# sourceMappingURL=BlogLinkBlock.razor.css.map */

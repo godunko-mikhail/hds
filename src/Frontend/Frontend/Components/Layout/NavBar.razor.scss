@@ -67,6 +67,9 @@ nav > .container > a {
     background-color: var(--color-dark-green);
     z-index: 1;
     
+
+    border: 2px solid var(--color-light-green);
+
     @include xs() {
         top: 40px;
     }

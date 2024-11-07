@@ -77,6 +77,7 @@ nav > .container > a {
   right: 0;
   background-color: var(--color-dark-green);
   z-index: 1;
+  border: 2px solid var(--color-light-green);
 }
 @media screen and (max-width: 479px) {
   .dropdown-content {
