@@ -3,7 +3,7 @@
 .header-section{
   margin-top: 150px;
   padding-bottom: 150px;
-  
+  background: url("bgs/blog.svg");
   
   h1 {
     color: var(--color-dark-green);
@@ -22,7 +22,6 @@
 .links-block1 {
   display: flex;
   flex-direction: row;
-  gap: 24px; 
   flex: 1 1 100%;
    
   ::deep > .link-block-container {
@@ -36,14 +35,23 @@
     
     ::deep > .link-block-container {
       max-width: 840px;
+      
+      width: 100%;
     }
+  }
+}
+
+.links-block1, .links-block2, .links-block3 {
+  gap: 24px;
+  
+  @include sm() {
+    gap: 12px;
   }
 }
 
 .links-block2 {
   display: flex;
   flex-direction: column;
-  gap: 24px;
   ::deep > .link-block-container {
     max-width: 840px;
   }
@@ -56,7 +64,6 @@
 .links-block3 {
   display: flex;
   flex-direction: row;
-  gap: 24px;
   flex-grow: 1;
   
   ::deep .link-block-container {
