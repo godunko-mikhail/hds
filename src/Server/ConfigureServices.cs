@@ -59,7 +59,7 @@ public static partial class ConfigureServices
             })
 
             ;
-        if (!string.IsNullOrEmpty(configuration.GetValue<string?>("Auth:Google:ClientSecret")))
+        if (configuration.GetValue<bool>("Auth:Google:Enabled"))
         {
             authBuilder.AddGoogle(options =>
             {

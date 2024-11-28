@@ -72,28 +72,35 @@ public class GetBeamFullQuery : IRequest<FullBeamVm>
 public class GetBeamFullQueryHandler : IRequestHandler<GetBeamFullQuery, FullBeamVm>
 {
     private readonly ILoadsCalculator<Beam> _loadsCalculator;
+    private readonly DrawingService _drawingService;
     private readonly IMapper _mapper;
 
     public GetBeamFullQueryHandler(
         IMapper mapper,
-        ILoadsCalculator<Beam> loadsCalculator)
+        ILoadsCalculator<Beam> loadsCalculator,
+        DrawingService drawingService)
     {
         _mapper = mapper;
         _loadsCalculator = loadsCalculator;
+        _drawingService = drawingService;
     }
 
     public async Task<FullBeamVm> Handle(GetBeamFullQuery request, CancellationToken cancellationToken)
     {
         var beam = _mapper.Map<Beam>(request);
-        var tmp = await _loadsCalculator.GetFirstGroupOfLimitStates(beam);
-        var tmp2 = await _loadsCalculator.GetSecondGroupOfLimitStates(beam);
-
-        var svg = new DrawingService().DrawDisplacement(tmp);
-        var svg2 = new DrawingService().DrawForce(tmp2);
-
-        var xml = svg.GetXML();
-        var xml2 = svg2.GetXML();
-
-        return _mapper.Map<FullBeamVm>(beam);
+        var femFirst = await _loadsCalculator.GetFirstGroupOfLimitStates(beam);
+        var femSecond = await _loadsCalculator.GetSecondGroupOfLimitStates(beam);
+        
+        var vm = _mapper.Map<FullBeamVm>(beam);
+        
+        vm.GraphDisplacementFirstGroup = _drawingService.DrawDisplacement(femFirst).GetXML();
+        vm.GraphMomentsFirstGroup = _drawingService.DrawMoments(femFirst).GetXML();
+        vm.GraphForcesFirstGroup = _drawingService.DrawForce(femFirst).GetXML();
+        
+        vm.GraphDisplacementSecondGroup = _drawingService.DrawDisplacement(femSecond).GetXML();
+        vm.GraphMomentsSecondGroup = _drawingService.DrawMoments(femSecond).GetXML();
+        vm.GraphForcesSecondGroup = _drawingService.DrawForce(femSecond).GetXML();
+        
+        return vm;
     }
 }

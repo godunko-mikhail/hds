@@ -31,4 +31,12 @@ public class FullBeamVm
     public double MomentOfResistanceZ { get; set; }
     public double StaticMomentOfShearSectionY { get; set; }
     public double StaticMomentOfShearSectionZ { get; set; }
+    
+    
+    public string? GraphDisplacementFirstGroup { get; set; } 
+    public string? GraphMomentsFirstGroup { get; set; } 
+    public string? GraphForcesFirstGroup { get; set; } 
+    public string? GraphDisplacementSecondGroup { get; set; } 
+    public string? GraphMomentsSecondGroup { get; set; } 
+    public string? GraphForcesSecondGroup { get; set; } 
 }

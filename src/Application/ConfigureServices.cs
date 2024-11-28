@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using Application.Common.Behaviour;
+using Application.Services;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,7 +18,8 @@ public static class ConfigureServices
         services.AddMediatR(Assembly.GetExecutingAssembly());
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehaviour<,>));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
-
+        services.AddSingleton<DrawingService>();
+        
         return services;
     }
 }
