@@ -5,6 +5,7 @@ services:
   hds_server:
     image: ${DOCKER_REGISTRY-}hds_server
     container_name: hds_server
+    restart: always
     build:
       context: .
       dockerfile: src/Server/Dockerfile
