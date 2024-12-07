@@ -34,6 +34,12 @@ public class DistributedLoadV2 : DistributedLoad
     public double NormativeValue { get; set; }
     public Units NormativeValueUm { get; set; }
     public double? LoadAreaWidth { get; set; }
+    /// <summary>
+    /// Коэффициент запаса прочности / надёжности
+    /// </summary>
     public double ReliabilityCoefficient { get; set; }
+    /// <summary>
+    /// Коэффициент уменьшения
+    /// </summary>
     public double ReducingFactor { get; set; }
 }
