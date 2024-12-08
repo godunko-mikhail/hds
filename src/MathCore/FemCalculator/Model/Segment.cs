@@ -23,4 +23,22 @@ public class Segment
     public double MomentOfInertiaX { get; set; }
     public double MomentOfInertiaY { get; set; }
     public double MomentOfInertiaZ { get; set; }
+
+    public Segment Clone()
+    {
+        return new Segment()
+        {
+            ZDirection = ZDirection.Clone(),
+            StiffnessModulus = StiffnessModulus,
+            CrossSectionalArea = CrossSectionalArea,
+            MomentOfInertiaX = MomentOfInertiaX,
+            MomentOfInertiaY = MomentOfInertiaY,
+            MomentOfInertiaZ = MomentOfInertiaZ,
+            First = First,
+            Second = Second,
+            ShearModulus = ShearModulus,
+            ShearAreaY = ShearAreaY,
+            ShearAreaZ = ShearAreaZ,
+        };
+    }
 }

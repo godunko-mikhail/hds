@@ -1,4 +1,6 @@
 ﻿using Core.Common.Enums;
+using MathCore.FemCalculator;
+using MathCore.FemCalculator.Model;
 
 namespace Core;
 
@@ -9,7 +11,10 @@ public static class Data
         kgm2,
         kgm
     }
-
+    
+    public static readonly Comparison<Node> NodesXCoordinateComparison = (first, second) => first.Coordinate.X.CompareTo(second.Coordinate.X);
+    public const double FemTolerance = 0.001; // 1mm
+    
     /// <summary>
     ///     информация по материалам тбалица B.3
     ///     https://docs.cntd.ru/document/456082589
@@ -82,4 +87,10 @@ public static class Data
     };
 
     public record ShrinkageValue(double Length, double Shrinkage);
+    
+    public static Node FindNodeByXCoordinate(this FemModel fem, double coordinate)
+    {
+        // 0.001 м = 0.1 см = 1 мм
+        return fem.Nodes.First(n => Math.Abs(n.Coordinate.X - coordinate) < Data.FemTolerance);
+    }
 }

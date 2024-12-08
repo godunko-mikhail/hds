@@ -1,7 +1,10 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Application;
+using Application.Features.WoodenConstruction.Queries.GetBeamFull;
+using AutoMapper;
 using Core;
+using Core.Models;
 using Infrastructure;
 using Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
@@ -63,7 +66,7 @@ try
     });
     builder.Host.UseSerilog();
     var app = builder.Build();
-
+    
     // TODO: move this script to ci cd module 
     using (var scope = app.Services.CreateScope())
     {

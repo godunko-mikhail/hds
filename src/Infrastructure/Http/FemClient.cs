@@ -4,6 +4,7 @@ using MathCore.Common.Interfaces;
 using MathCore.FemCalculator;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Infrastructure;
 
@@ -24,6 +25,7 @@ public class FemClient : IFemCalculator
     public async Task CalculateAsync(FemModel model)
     {
         var request = new StringContent(MapToJson(model), Encoding.UTF8, "application/json");
+        var json = MapToJson(model);
         var response = await _httpClient.PostAsync(_femUri, request);
         var responseBody = await response.Content.ReadAsStringAsync();
         var result = JsonConvert.DeserializeObject<FemClientResponse.Root>(responseBody);

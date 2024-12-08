@@ -1,9 +1,11 @@
 ﻿using Application.Services;
+using Application.Services.FemBuilder;
 using AutoMapper;
 using Core.Common.Enums;
 using Core.Common.Interfaces;
 using Core.Models;
 using Core.Models.Loads;
+using MathCore.Common.Interfaces;
 using MediatR;
 using Svg;
 
@@ -62,36 +64,62 @@ public class GetBeamFullQuery : IRequest<FullBeamVm>
     /// <summary>
     /// Распределённые нагрузки
     /// </summary>
-    public IEnumerable<DistributedLoad> DistributedLoads { get; set; } = null!;
+    public IEnumerable<DistributedLoadV2> DistributedLoads { get; set; } = null!;
     /// <summary>
     /// Сосредоточеные нагрузки
     /// </summary>
-    public IEnumerable<ConcentratedLoad> ConcentratedLoads { get; set; } = null!;
+    public IEnumerable<ConcentratedLoadV2> ConcentratedLoads { get; set; } = null!;
 }
 
 public class GetBeamFullQueryHandler : IRequestHandler<GetBeamFullQuery, FullBeamVm>
 {
     private readonly ILoadsCalculator<Beam> _loadsCalculator;
+    private readonly IFemCalculator _femCalculator;
     private readonly DrawingService _drawingService;
     private readonly IMapper _mapper;
 
     public GetBeamFullQueryHandler(
         IMapper mapper,
         ILoadsCalculator<Beam> loadsCalculator,
+        IFemCalculator femCalculator,
         DrawingService drawingService)
     {
         _mapper = mapper;
         _loadsCalculator = loadsCalculator;
+        _femCalculator = femCalculator;
         _drawingService = drawingService;
     }
 
     public async Task<FullBeamVm> Handle(GetBeamFullQuery request, CancellationToken cancellationToken)
     {
         var beam = _mapper.Map<Beam>(request);
-        var femFirst = await _loadsCalculator.GetFirstGroupOfLimitStates(beam);
-        var femSecond = await _loadsCalculator.GetSecondGroupOfLimitStates(beam);
+        var femBuilderFirst = FemBuilder.Create(LoadGroup.First)
+            .AddInitialNodes(beam)
+            .FillNodes()
+            .SetSupportValues(beam.Supports);
+
+        var femSecond = femBuilderFirst.Clone()
+            .SetLoadGroup(LoadGroup.Second)
+            .SetConcentratedLoads(beam.ConcentratedLoads)
+            .SetDistributedLoads(beam.DistributedLoads)
+            .CreateSegments(beam)
+            .Build();
+
+        var femFirst = femBuilderFirst
+            .SetConcentratedLoads(beam.ConcentratedLoads)
+            .SetDistributedLoads(beam.DistributedLoads)
+            .CreateSegments(beam)
+            .Build();
+
+        await Task.WhenAll(
+            _femCalculator.CalculateAsync(femFirst),
+            _femCalculator.CalculateAsync(femSecond)
+            );
         
         var vm = _mapper.Map<FullBeamVm>(beam);
+        
+        vm.SupportReactionsFirstGroup = _loadsCalculator.GetSupportReactions(beam, femFirst);
+        vm.SupportReactionsSecondGroup = _loadsCalculator.GetSupportReactions(beam, femSecond);
         
         vm.GraphDisplacementFirstGroup = _drawingService.DrawDisplacement(femFirst).GetXML();
         vm.GraphMomentsFirstGroup = _drawingService.DrawMoments(femFirst).GetXML();

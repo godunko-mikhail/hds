@@ -4,7 +4,7 @@ namespace MathCore.FemCalculator.Model;
 
 public struct SegmentEnd
 {
-    public SegmentEnd(int node, Vector6D<bool> isFlexible, Vector6D<bool> isFixed)
+    public SegmentEnd(int node, AxisProperties isFlexible, AxisProperties isFixed)
     {
         Node = node;
         IsFlexible = isFlexible;
@@ -13,15 +13,15 @@ public struct SegmentEnd
 
     public SegmentEnd()
     {
-        IsFlexible = new Vector6D<bool>();
-        IsFixed = new Vector6D<bool>();
+        IsFlexible = new AxisProperties();
+        IsFixed = new AxisProperties();
     }
 
     public int Node { get; set; }
 
-    public Vector6D<bool> IsFlexible { get; set; }
-    public Vector6D<bool> IsFixed { get; set; }
+    public AxisProperties IsFlexible { get; set; }
+    public AxisProperties IsFixed { get; set; }
 
-    public Vector6D<double>? Displacement { get; set; }
-    public Vector6D<double>? Force { get; set; }
+    public Vector6D<double> Displacement { get; set; }
+    public Vector6D<double> Force { get; set; }
 }

@@ -5,8 +5,8 @@ public class ConcentratedLoadV2 : ConcentratedLoad
     public ConcentratedLoadV2()
     {
         NormativeValue = 0;
-        ReliabilityCoefficient = 0;
-        ReducingFactor = 0;
+        ReliabilityCoefficient = 1;
+        ReducingFactor = 1;
     }
 
     public ConcentratedLoadV2(double offset, double normativeValue, double reliabilityCoefficient,

@@ -9,8 +9,8 @@ public class DistributedLoadV2 : DistributedLoad
         NormativeValue = 0;
         NormativeValueUm = Units.kgm;
         LoadAreaWidth = 0;
-        ReliabilityCoefficient = 0;
-        ReducingFactor = 0;
+        ReliabilityCoefficient = 1;
+        ReducingFactor = 1;
     }
 
     public override double LoadForFirstGroup

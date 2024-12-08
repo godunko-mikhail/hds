@@ -9,6 +9,12 @@ public class BeamMappingProfile : Profile
     public BeamMappingProfile()
     {
         CreateMap<GetBeamFullQuery, Beam>();
-        CreateMap<Beam, FullBeamVm>();
+        CreateMap<Beam, FullBeamVm>()
+            .ForPath(v => v.GeometricCharacteristics, v => v
+                .MapFrom(beam => beam))
+            .ForPath(v => v.PhysicalMechanicalCharacteristics, v => v
+                .MapFrom(beam => beam));
+        CreateMap<Beam, GeometricCharacteristics>();
+        CreateMap<Beam, PhysicalMechanicalCharacteristics>();
     }
 }

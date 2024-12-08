@@ -22,4 +22,6 @@ public static class Mathematics
             throw new ArgumentException("can't calculate with 2 same points");
         return (first.Y - second.Y) * (x - first.X) / (first.X - second.X) + first.Y;
     }
+    
+    public const double G = 9.807D;
 }
